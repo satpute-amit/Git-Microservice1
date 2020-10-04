@@ -28,7 +28,6 @@ namespace MicroRabbit.Infra.Bus
         Task IEventBus.SendCommand<T>(T command)
         {
             return _mediator.Send(command);
-
         }
 
         void IEventBus.Publish<T>(T @event)
@@ -62,10 +61,9 @@ namespace MicroRabbit.Infra.Bus
             {
                 _handler.Add(eventName, new List<Type>());
             }
-
             if (_handler[eventName].Any(s => s.GetType() == handlerType))
             {
-                // throw.Exceptipn
+                // throw.Exception
             }
 
             _handler[eventName].Add(handlerType);
@@ -104,12 +102,9 @@ namespace MicroRabbit.Infra.Bus
             try
             {
                 await ProcessEvent(eventName, message).ConfigureAwait(false);
-
-
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
