@@ -21,6 +21,7 @@ namespace MicroRabbit.Banking.Api
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    //webBuilder.UseStartup<Startup>().Build();
                 });
     }
 }
